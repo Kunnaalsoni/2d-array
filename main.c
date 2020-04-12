@@ -13,17 +13,16 @@ int main(){
     FILE *fptr;
     fptr = (fopen("input.dat", "r"));
     fscanf (fptr, "%i %i", &m, &n);
-    fclose(fptr);
     // initialize of array
     int A[m][n];
 
-    //reading values from user
-    for (r = 0; r < m; r++){
-       for(c = 0; c < n; c++){
-             printf("\nENTER VALUE AT marks[%d][%d] : ", r, c);
-             scanf("%d", &A[r][c]);
-       }
-    }
+    //reading the array values from the file
+    for(int jj=0; jj<m; jj++)
+        for(int ii=0; ii<n; ii++)
+            fscanf(fptr, "%i", &A[jj][ii]);
+
+    fclose(fptr);
+
 
     //storing output on the output.dat
     FILE *fout;
